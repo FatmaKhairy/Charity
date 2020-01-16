@@ -13,16 +13,15 @@
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-				Route::get('/', function () {
-						return view('index');
-				});
+	Route::get('/', function () {
+			return view('index');
+	});
 
-		Route::get('/giver', function () {
-				return view('giver');
-		});
+	Route::get('/giver', function () {
+			return view('giver');
+	});
 
+	Auth::routes();
 
-		Auth::routes();
-
-		Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/home', 'HomeController@index')->name('home');
 });
