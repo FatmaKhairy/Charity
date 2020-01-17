@@ -13,7 +13,7 @@
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-	Route::get('/','giver@index');
+	Route::get('/','giverController@index');
   Route::get('/voluntary',function (){return view('voluntary');});
 
 
