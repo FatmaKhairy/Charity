@@ -13,13 +13,9 @@
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-	Route::get('/', function () {
-			return view('index');
-	});
+	Route::get('/','giver@index');
+  Route::get('/voluntary',function (){return view('voluntary');});
 
-	Route::get('/giver', function () {
-			return view('giver');
-	});
 
 	Auth::routes();
 
