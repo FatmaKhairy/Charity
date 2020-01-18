@@ -1,29 +1,34 @@
 $(document).ready(function () {
+    // change select first form
+    $( '#GovSelect' ).change(function () {
+        $('#options').empty();
+             let optionSelected = $(this).find("option:selected");
+             let govern = optionSelected.data('gov');
+             var $dropdown = $("#options");
+             $.each(govern, function() {
+                 $dropdown.append($("<option />").val(this.id).text(this.city_name));
+             });
+        } );//end change select
+
+
+
     //click btn mySelf
 
-    var $govern = $('#Agovernorates');
-    var $region = $('#Aregions');
-
-
-    $('#a > input').each(function() {
-        if ($(this).val() == "") {
-            console.log('h')
-        }
-    });
-
-    if($govern.val() == null && $region.val() == null){
-        alert('h')
-    }
-
-
-    $('#mySelf').on('click',function (e) {
-         e.preventDefault();
-         $('#foodPlace').css('display','block');
-
- })
-    //end btn mySelf
-
     //click btn notMe
+
+
+    // change select secend form
+    $( '#secGovSelect' ).change(function () {
+        $('#secOptions').empty();
+        let optionSelected = $(this).find("option:selected");
+        let govern = optionSelected.data('gov');
+        var $dropdown = $("#secOptions");
+        $.each(govern, function() {
+            $dropdown.append($("<option />").val(this.id).text(this.city_name));
+        });
+
+    } );//end change select
+
     $('#notMe').on('click',function (e) {
             e.preventDefault();
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGiversTable extends Migration
+class CreateGovernoratesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateGiversTable extends Migration
      */
     public function up()
     {
-        Schema::create('givers', function (Blueprint $table) {
+        Schema::create('governorates', function (Blueprint $table) {
             $table->Increments('id');
-            $table->enum('governorate',['cairo','alex']);
-						$table->enum('region',['A5','A6']);
-						$table->mediumText('street');
-            $table->timestamps();
+            $table->string('governorate_name');
+
         });
     }
 
@@ -29,6 +27,6 @@ class CreateGiversTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('givers');
+        Schema::dropIfExists('governorates');
     }
 }
