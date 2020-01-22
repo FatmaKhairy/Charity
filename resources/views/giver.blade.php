@@ -30,7 +30,7 @@
                          <div class="card">
                               <div class="card-header">التبرع بنفسك</div>
                                <div class="card-body">
-                                      <form  action="" method="get" id="a">
+                                      <form >
                                     @csrf
                                     <div class="form-group row">
                                         <label  class="col-md-4 col-form-label text-md-right">المحافظه</label>
@@ -49,27 +49,33 @@
                                     <div class="form-group row">
                                         <label class="col-md-4 col-form-label text-md-right">الحي</label>
                                         <div class="col-md-6">
-                                            <select name="city" class="form-control " id="options">
+                                            <select name="city_id" class="form-control " id="options">
 
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group row" style="display: none" id="foodPlace">
-                                        <label class="col-md-4 col-form-label text-md-right"> اماكن تواجد صندوق الطعام </label>
-                                        <div class="col-md-6">
-                                            <ul>
-                                                  <li><data value="place1">Cherry Tomato</data></li>
-                                                  <li><data value="place2">Beef Tomato</data></li>
-                                                  <li><data value="place3">Snack Tomato</data></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    {{-- خرجنا الليست بوكسز بره الفورم--}}
                                     <div class="form-group row">
                                         <div class="col-md-4">
-                                            <button type="submit" id="mySelf" class="form-control btn btn-primary disabled">التبرع بنفسك </button>
+                                            <button id="mySelf"  class="form-control btn btn-primary"
+                                                    disabled="disabled"
+                                                      data-url="/boxes"
+                                                     data-method="get"
+                                            >التبرع بنفسك
+                                            </button>
+
                                         </div>
                                     </div>
                                 </form>
+                                   <div class="form-group row" style="display: none" id="foodPlace">
+                                       <label> <h2> اماكن تواجد صندوق الطعام</h2>
+                                       </label>
+                                       <div class="col-md-6">
+                                          <ul id="boxes">
+
+                                          </ul>
+                                       </div>
+                                   </div>
                             </div>
                         </div>
                     </div>

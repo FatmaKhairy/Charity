@@ -95,7 +95,7 @@
 
      </footer>
 </div>
-</body>
+
 
 
 {{--<!-- jQuery 3 -->--}}
@@ -105,5 +105,6 @@
 <script src="{{ asset('feed/js/bootstrap.min.js') }}"></script>
 {{--<!--custom js -->--}}
 <script src="{{ asset('feed/js/custom.js') }}"></script>
+
 </body>
 </html>

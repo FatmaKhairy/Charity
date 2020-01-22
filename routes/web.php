@@ -14,6 +14,8 @@
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
 	Route::get('/','giverController@index');
+	Route::get('/boxes','giverController@showBoxes');
+
   Route::get('/voluntary',function (){return view('voluntary');});
 
 
