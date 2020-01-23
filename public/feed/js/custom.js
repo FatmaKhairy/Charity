@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
     // change select first form
-    $( '#GovSelect' ).change(function () {
+    $( '#GovSelect' ).change(function (e) {
+        e.preventDefault();
         $('#options').empty();
-
+        $('#mySelf').attr('disabled','disabled');
+        $('li').remove();
              let optionSelected = $(this).find("option:selected");
              let govern = optionSelected.data('gov');
              var $dropdown = $("#options");
@@ -19,32 +21,31 @@ $(document).ready(function () {
 
 
     //click btn mySelf
-    if ( $('#options').change(function () {
-            $('#mySelf').removeAttr('disabled')
+    if ( $('#options').change(function (e) {
+            e.preventDefault();
+            $('#mySelf').removeAttr('disabled');
+            $('li').remove();
     }))
 
 
         $('body').on('click','#mySelf',function (e) {
             e.preventDefault();
-
             let url=$(this).data('url');
             let method=$(this).data('method');
-
             $('#foodPlace').css('display','block');
-            $.ajax({
 
+            $.ajax({
                 url:url,
                 method:method,
                 data:{'city_id':$("#options").find("option:selected").val()},
                 success:function (data) {
                 // console.log(data)لحد هنا بيعرضي الصناديق بس array
-
-                    $.each(data, function() {
-                    console.log(this.street_name)
-                       // $('#boxes').append(this.street_name)
-                        $('#boxes').append($(`
-                        <li style="color: #85144B ; font-weight: bold;" >${this.street_name}</li>
-                        `))
+                    $.each(data, function()
+                    {
+                     // console.log(this.street_name) // $('#boxes').append(this.street_name)
+                     $('#boxes').append($(
+                         ` <li style="color: #85144B ; font-weight: bold;" id="boxplace" >${this.street_name}</li> `
+                          ))
                     });
 
                 }

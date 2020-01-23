@@ -19,7 +19,7 @@ class BoxesTableSeeder extends Seeder
 				DB::table('boxes')->insert([
 						"governorate_id" =>2,
 						'city_id'        =>3,
-						'street_name'    =>'شارع المنشيه بجوار عصير مكه',
+						'street_name'    =>'شارع صفيه زغلول بجوار عصير مكه',
 				]);
 				DB::table('boxes')->insert([
 						"governorate_id" =>3,
