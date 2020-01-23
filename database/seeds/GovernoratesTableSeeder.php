@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 
 class GovernoratesTableSeeder extends Seeder
@@ -10,8 +11,12 @@ class GovernoratesTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-
+    {   $govs=['القاهره','الاسكندريه','الغربيه'];
+    		foreach ($govs as $gov) {
+						\App\Governorate::create([
+								'governorate_name' => $gov,
+						]);
+				}
 
     }
 }

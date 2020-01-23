@@ -18,6 +18,7 @@ class CreateCitiesTable extends Migration
 						$table->integer('governorate_id')->unsigned()->nullable();
 						$table->string('city_name');
 						$table->foreign('governorate_id')->references('id')->on('governorates')->onDelete('cascade');
+						$table->timestamps();
         });
     }
 
