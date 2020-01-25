@@ -29,7 +29,8 @@ class UserController extends Controller
 				]);
 				$data=$request->except('password');
 				$data['password']=bcrypt($request->password);
-				User::create($data);
+		  	User::create($data);
+
 				return redirect()->route('dashboard.users.index');
     }
 

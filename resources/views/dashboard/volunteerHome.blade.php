@@ -20,9 +20,6 @@
 		<li class="nav-item">
 				<a class="nav-link" href="/dashboard/" style="color: #e2e3e5">التبرعات</a>
 		</li>
-		{{--                <li class="nav-item">--}}
-				{{--                    <a class="nav-link" href="{{route('dashboard.volunteers.volunteer.index')}}" style="color: #e2e3e5">الصفحه الشخصيه</a>--}}
-				{{--                </li>--}}
 		<li class="nav-item active">
 				<button class="navbar-toggler" type="button" style=" position: absolute; left: 15px;"
 								data-toggle="collapse" data-target="#navbarToggleExternalContent"

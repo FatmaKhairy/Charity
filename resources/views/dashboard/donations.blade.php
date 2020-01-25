@@ -72,6 +72,7 @@
                 </thead>
                 <tbody>
            @foreach($donations as $index=>$donation)
+               {{$donation->govName()}}
                   <tr>
                       <td>{{$index+1}}</td>
                        <td>{{$donation->governorate_id}}</td>
@@ -84,7 +85,8 @@
 {{--                                action="{{route('dashboard.products.destroy',$product->id)}}"--}}
                              {{csrf_field()}}
                               {{method_field('post')}}
-                              <a href="" class="btn btn-success btn-sm" style="color: white"> اخذ التبرع</a>
+                              <a href="{{route('dashboard.volunteer')}}" class="btn btn-success btn-sm" style="color: white"
+                              > اخذ التبرع</a>
                               <button type="submit" class="btn btn-danger btn-sm">حذف التبرع</button>
                             </form>
 {{--                        @else--}}

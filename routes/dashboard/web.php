@@ -11,17 +11,18 @@
 |
 */
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Facades\DB;
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-		Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function (){
+		 Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function (){
+     Route::get('/','donationController@index')->name('donations');
 
-			  Route::get('/','donationController@index')->name('donations');
-				Route::resource('/users','UserController')->except('show');//كل المتطوعين
+			Route::resource('/users','UserController')->except('show');//كل المتطوعين
       //Route::resource('volunteer','volunteers/volunteerController')->except('show');//صفحه المتطوع الشخصيهuser
-				Route::get('/volunteer',function (){
+			Route::get('/volunteer',function (){
 						return view('dashboard.volunteerHome');
-				})->name('volunteer');
+			})->name('volunteer');
 
 		});//end dashboard routes
 
