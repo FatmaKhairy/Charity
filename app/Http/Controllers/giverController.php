@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Box;
 use App\City;
+use App\Donation;
 use App\Governorate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +27,17 @@ class giverController extends Controller
 							$boxes =DB::table('boxes')->where('city_id',$request->city_id)->get();
 							return response()->json($boxes);
 					}
+			}
+
+			public function donation(Request $request){
+
+					$request->validate([
+							'governorate_id' => 'required',
+              'city_id'        => 'required',
+              'street_name'    => 'required',
+					]);
+					Donation::create($request->all());
+					return redirect('/');
 			}
 
 }

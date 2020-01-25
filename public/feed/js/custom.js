@@ -27,8 +27,7 @@ $(document).ready(function () {
             $('li').remove();
     }))
 
-
-        $('body').on('click','#mySelf',function (e) {
+    $('body').on('click','#mySelf',function (e) {
             e.preventDefault();
             let url=$(this).data('url');
             let method=$(this).data('method');
@@ -63,15 +62,12 @@ $(document).ready(function () {
         let optionSelected = $(this).find("option:selected");
         let govern = optionSelected.data('gov');
         var $dropdown = $("#secOptions");
+        $dropdown.append($("<option />").val('').text(''));
         $.each(govern, function() {
-            $dropdown.append($("<option />").val(this.id).text(this.city_name));
+            $dropdown.append($(`<option/>`).val(this.id).text(this.city_name));
         });
 
     } );//end change select
 
-    $('#notMe').on('click',function (e) {
-            e.preventDefault();
-
-    })
     //end btn notMe
 });

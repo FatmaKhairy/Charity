@@ -20,6 +20,10 @@ class City extends Authenticatable
 		{
 				return $this->hasMany(Box::class);
 		}
+		public function donations()
+		{
+				return $this->hasMany(Donation::class);
+		}
 
 
 }

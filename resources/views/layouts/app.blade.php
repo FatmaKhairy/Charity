@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset('feed/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('feed/css/font-awesome-rtl.min.css') }}">
     <link rel="stylesheet" href="{{ asset('feed/css/rtl.css') }}">
+    <link href="{{ asset('feed/css/table.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Styles -->
     <style>
         html, body {
@@ -72,7 +74,7 @@
 
 
 </head>
-<body class="text-center">
+<body class="app">
 <div id="app">
      <header>
          <div class="pos-f-t">

@@ -5,7 +5,7 @@
             <a class="nav-link" href="/" style="color: #e2e3e5">مطعم</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/voluntary" style="color: #e2e3e5">متطوع</a>
+            <a class="nav-link" href="/dashboard" style="color: #e2e3e5">متطوع</a>
         </li>
         <li class="nav-item active">
             <button class="navbar-toggler" type="button" style=" position: absolute; left: 15px;"
@@ -35,7 +35,7 @@
                                     <div class="form-group row">
                                         <label  class="col-md-4 col-form-label text-md-right">المحافظه</label>
                                         <div class="col-md-6">
-                                            <select name="governorate_id" class="form-control " id="GovSelect">
+                                            <select  name="governorate_id" class="form-control " id="GovSelect" >
                                                 <option value="" class="form-control"></option>
                                                 @foreach($governs as $govern)
                                                     <option value="{{$govern->id}}"
@@ -49,7 +49,7 @@
                                     <div class="form-group row">
                                         <label class="col-md-4 col-form-label text-md-right">الحي</label>
                                         <div class="col-md-6">
-                                            <select name="city_id" class="form-control " id="options">
+                                            <select  name="city_id" class="form-control " id="options">
 
                                             </select>
                                         </div>
@@ -85,12 +85,13 @@
                          <div class="card">
                              <div class="card-header">التبرع بواسطه متطوع</div>
                              <div class="card-body">
-                                        <form method="POST" action="">
+{{--                                 @include('partials._errors')--}}
+                                        <form method="POST" action="/donation">
                                         @csrf
                                         <div class="form-group row">
                                             <label  class="col-md-4 col-form-label text-md-right">المحافظه</label>
                                             <div class="col-md-6">
-                                                <select name="governorate_id" class="form-control" id="secGovSelect">
+                                                <select name="governorate_id" class="form-control" id="secGovSelect" required>
                                                     <option value="" class="form-control"></option>
                                                     @foreach($governs as $govern)
                                                         <option value="{{$govern->id}}"   data-gov="{{$govern->cities}}"
@@ -103,20 +104,20 @@
                                         <div class="form-group row">
                                             <label class="col-md-4 col-form-label text-md-right">الحي</label>
                                             <div class="col-md-6">
-                                                <select name="city" class="form-control " id="secOptions">
+                                                <select name="city_id" class="form-control " id="secOptions" required>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-4 col-form-label text-md-right">العنوان التفصيل </label>
                                             <div class="col-md-6">
-                                                <textarea  class="form-control" name="street" required autofocus>
+                                                <textarea  required class="form-control" name="street_name">
                                                 </textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-md-4">
-                                                <button type="submit" class="form-control btn btn-info" id="send">{{ 'ارسال'}} </button>
+                                                <input type="submit" class="form-control btn btn-info" value="{{ 'ارسال'}}">
                                             </div>
                                         </div>
                                     </form>
@@ -125,7 +126,8 @@
                     </div>
                         {{--end sec form --}}
                 </div>
-            </div>
+
+
         </section>
 
     </div><!-- end of content wrapper -->

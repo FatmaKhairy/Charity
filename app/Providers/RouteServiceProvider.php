@@ -15,6 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
+		protected $Volunteer_namespace = 'App\Http\Controllers\dashboard';
 
     /**
      * The path to the "home" route for your application.
@@ -45,6 +46,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
+        $this->mapVolunteerWebRoutes();
 
         //
     }
@@ -62,6 +64,13 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
     }
+
+		protected function mapVolunteerWebRoutes()
+		{
+				Route::middleware('web')
+						->namespace($this->Volunteer_namespace)
+						->group(base_path('routes/dashboard/web.php'));
+		}
 
     /**
      * Define the "api" routes for the application.
