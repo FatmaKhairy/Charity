@@ -12,4 +12,4 @@ npm-debug.log
 yarn-error.log
 .idea
 nots.txt
-/public/feed/css/table.css
+/resources/views/dashboard/volunteers/test.html
