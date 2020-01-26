@@ -34,7 +34,7 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-md-12"><a href="{{route('dashboard.users.create')}}" class="btn btn-secondary"><i class="fa fa-plus"></i>اضافه متطوع</a></div>
+                    <div class="col-md-12"><a href="{{route('dashboard.users.create')}}" class="btn btn-secondary" style="background-color: #85144b"><i class="fa fa-plus"></i> اضافه متطوع </a></div>
                 </div>
             </div>
             <table class="table table-striped table-hover table-bordered">
