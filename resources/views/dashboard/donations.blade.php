@@ -67,7 +67,7 @@
                     <th style="width: 20px">الحي</th>
                     <th style="width:200px">الشارع</th>
                     <th style="width:200px">التارخ</th>
-                    <th style="width:200px">الحاله</th>
+                    <th style="width:250px">الحاله</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -78,23 +78,22 @@
                        <td>{{$donation->city_name}}</td>
                        <td>{{$donation->street_name}}</td>
                        <td>{{$donation->created_at}}</td>
-                        <td>
+                       <td>
                          @if(auth()->user()->hasPermission('delete-donations'))
-                          <form style="display: inline-block" action="{{route('dashboard.donations.destroy',$donation->id)}}">
+                          <form style="display: inline-block" action="{{route('dashboard.donations.destroy',$donation->id)}}" method="post">
                              {{csrf_field()}}
-                              {{method_field('post')}}
-                              <a href="{{route('dashboard.volunteer')}}" class="btn btn-success btn-sm personal" style="color: white"
-                              > اخذ التبرع</a>
+                              {{method_field('delete')}}
                               <button type="submit" class="btn btn-danger btn-sm">حذف التبرع</button>
                             </form>
-                        @else
-                                <form style="display: inline-block"action="{{route('dashboard.volunteer')}}">
-                                    {{csrf_field()}}
-                                    {{method_field('post')}}
-                                    <button type="submit" class="btn btn-success btn-sm">اخذ التبرع</button>
-                                </form>
                          @endif
-                                </td>
+                             @if(auth()->user()->hasPermission('update-donations'))
+                             <a href="{{route('dashboard.donations.edit',$donation->id)}}" class="btn btn-success btn-sm" style="color: white"
+                             > تعديل التبرع</a>
+                             @endif
+                             <form action="{{route('dashboard.volunteer')}}" method="get" style="display: inline-block">
+                                 <button type="submit" class="btn btn-primary btn-sm">التطوع لوصول التبرع</button>
+                             </form>
+                       </td>
                             </tr>
             @endforeach
                 </tbody>

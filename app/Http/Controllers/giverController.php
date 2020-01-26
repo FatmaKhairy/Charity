@@ -13,14 +13,12 @@ class giverController extends Controller
 {
 			public function index(){
 					$governs=Governorate::with('cities')->get();
-           $cities=City::all();
-						//			$govern_id=$governs[0]->id; //	$city=$governs[0]->cities;// dd($city);
-					return view('giver',compact('governs','cities'));
+						//$govern_id=$governs[0]->id; //	$city=$governs[0]->cities;// dd($city);
+					return view('giver',compact('governs'));
 			}
 
 			public function showBoxes(Request $request)
 			{
-
 				//SELECT * FROM `boxes` WHERE `city_id` = 1
         //$x= DB::table('boxes')->where('city_id',$request->city_id)->get();
 					if ($request->ajax()){

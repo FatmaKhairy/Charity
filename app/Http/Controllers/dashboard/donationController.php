@@ -24,7 +24,7 @@ class donationController extends Controller
 
     public function edit(Donation $donation)
     {
-        //
+        return 'تعديل التبرع'.$donation->id;
     }
 
     public function update(Request $request, Donation $donation)
