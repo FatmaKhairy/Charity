@@ -91,7 +91,7 @@
                                         <div class="form-group row">
                                             <label  class="col-md-4 col-form-label text-md-right">المحافظه</label>
                                             <div class="col-md-6">
-                                                <select name="governorate_id" class="form-control" id="secGovSelect" required>
+                                                <select name="governorate_name" class="form-control" id="secGovSelect" required>
                                                     <option value="" class="form-control"></option>
                                                     @foreach($governs as $govern)
                                                         <option value="{{$govern->id}}"   data-gov="{{$govern->cities}}"
@@ -104,7 +104,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-4 col-form-label text-md-right">الحي</label>
                                             <div class="col-md-6">
-                                                <select name="city_id" class="form-control " id="secOptions" required>
+                                                <select name="city_name" class="form-control " id="secOptions" required>
                                                 </select>
                                             </div>
                                         </div>

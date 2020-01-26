@@ -46,29 +46,31 @@
                 </tr>
                 </thead>
                 <tbody>
+                @if($users->count() >1)
                 @foreach($users as $index=>$user)
                     <tr>
                         <td>{{$index+1}}</td>
                         <td>{{$user->name}}</td>
                         <td>
-{{--                            @if(auth()->user()->hasPermission('delete_products'))--}}
-                                <form
-{{--                                        action="{{route('dashboard.products.destroy',$product->id)}}"--}}
-                                        method="post" style="display: inline-block">
+                            @if($user->name ==$admin)
+                                <h2>super<b>Admin</b></h2>
+                            @endif
+                            @if(auth()->user()->hasPermission('delete-users') && $user->name !=$admin)
+                                <form action="{{route('dashboard.users.destroy',$user->id)}}" style="display: inline-block" method="post">
                                     {{csrf_field()}}
                                     {{method_field('delete')}}
-                                    <button type="submit" class="btn btn-success">حذف</button>
+                                    <button type="submit" class="btn btn-danger" style="color: wheat">حذف المتطوع</button>
                                 </form>
-{{--                            @else--}}
-                                <form action="#" method="post" style="display: inline-block">
-                                    {{csrf_field()}}
-                                    {{method_field('post')}}
-                                    <a  href="{{ route('dashboard.users.edit',$user->id)}}" class="btn btn-danger">تعديل</a>
-                                </form>
-{{--                            @endif--}}
+                            @endif
+                                @if(auth()->user()->hasPermission('update-users') && $user->name !=$admin)
+                                        <a  href="{{route('dashboard.users.edit',$user->id)}}" class="btn btn-success" style="color: white">تحديث المتطوع</a>
+                                @endif
                         </td>
                     </tr>
                 @endforeach
+                    @else
+                    <h2>لايوجد متطوعين</h2>
+                    @endif
                 </tbody>
             </table>
 

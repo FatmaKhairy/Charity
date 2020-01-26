@@ -17,8 +17,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
 		 Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function (){
      Route::get('/','donationController@index')->name('donations');
-
-			Route::resource('/users','UserController')->except('show');//كل المتطوعين
+     Route::resource('/donations','donationController');
+     Route::resource('/users','UserController')->except('show');//كل المتطوعين
       //Route::resource('volunteer','volunteers/volunteerController')->except('show');//صفحه المتطوع الشخصيهuser
 			Route::get('/volunteer',function (){
 						return view('dashboard.volunteerHome');

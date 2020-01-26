@@ -68,6 +68,12 @@ $(document).ready(function () {
         });
 
     } );//end change select
-
     //end btn notMe
+     //click btn اخذ التبرع
+    $('.personal').on('click',function () {
+        $('.trow').append(`<tr>${(this).closest('tr').html()}</tr>`)
+
+
+    })
+
 });

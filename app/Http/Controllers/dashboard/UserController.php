@@ -11,7 +11,8 @@ class UserController extends Controller
     public function index()
     {
 				$users=User::all();
-				return view('dashboard.volunteers.index',compact('users'));
+				$admin=$users[0]->name;
+				return view('dashboard.volunteers.index',compact('users','admin'));
     }
 
 
@@ -29,8 +30,7 @@ class UserController extends Controller
 				]);
 				$data=$request->except('password');
 				$data['password']=bcrypt($request->password);
-		  	User::create($data);
-
+		    User::create($data);
 				return redirect()->route('dashboard.users.index');
     }
 

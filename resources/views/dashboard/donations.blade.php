@@ -72,31 +72,28 @@
                 </thead>
                 <tbody>
            @foreach($donations as $index=>$donation)
-               {{$donation->govName()}}
                   <tr>
                       <td>{{$index+1}}</td>
-                       <td>{{$donation->governorate_id}}</td>
-                       <td>{{$donation->city_id}}</td>
+                       <td>{{$donation->governorate_name}}</td>
+                       <td>{{$donation->city_name}}</td>
                        <td>{{$donation->street_name}}</td>
                        <td>{{$donation->created_at}}</td>
                         <td>
-{{--                             @if(auth()->user()->hasPermission('delete_products'))--}}
-                          <form style="display: inline-block">
-{{--                                action="{{route('dashboard.products.destroy',$product->id)}}"--}}
+                         @if(auth()->user()->hasPermission('delete-donations'))
+                          <form style="display: inline-block" action="{{route('dashboard.donations.destroy',$donation->id)}}">
                              {{csrf_field()}}
                               {{method_field('post')}}
-                              <a href="{{route('dashboard.volunteer')}}" class="btn btn-success btn-sm" style="color: white"
+                              <a href="{{route('dashboard.volunteer')}}" class="btn btn-success btn-sm personal" style="color: white"
                               > اخذ التبرع</a>
                               <button type="submit" class="btn btn-danger btn-sm">حذف التبرع</button>
                             </form>
-{{--                        @else--}}
-{{--                                <form action="#" method="post" style="display: inline-block">--}}
-{{--                                    {{csrf_field()}}--}}
-{{--                                     {{method_field('post')}}--}}
-{{--                                    <button type="submit" class="btn btn-danger btn-sm">اخذ التبرع</button>--}}
-{{--                                 </form>--}}
-
-{{--                         @endif--}}
+                        @else
+                                <form style="display: inline-block"action="{{route('dashboard.volunteer')}}">
+                                    {{csrf_field()}}
+                                    {{method_field('post')}}
+                                    <button type="submit" class="btn btn-success btn-sm">اخذ التبرع</button>
+                                </form>
+                         @endif
                                 </td>
                             </tr>
             @endforeach

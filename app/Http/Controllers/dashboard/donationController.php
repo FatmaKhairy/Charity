@@ -14,21 +14,8 @@ class donationController extends Controller
     public function index()
     {
 				$donations= Donation::all();
-        return view('dashboard.donations',compact('donations'));
-       //كل التببرعات
+        return view('dashboard.donations',compact('donations'));//كل التببرعات
     }
-
-
-//		public function cityName($cityID)
-//		{
-//				return DB::table('cities')->select('city_name')
-//						->where('id',$cityID)->get();
-//		}
-//		public function govName($govID)
-//		{
-//				return DB::table('governorates')->select('governorate_name')
-//						->where('id',$govID)->get();
-//		}
 
     public function show(Donation $donation)
     {
@@ -47,6 +34,7 @@ class donationController extends Controller
 
     public function destroy(Donation $donation)
     {
-        //
+        $donation->delete();
+        return redirect()->route('dashboard.donations.index');
     }
 }

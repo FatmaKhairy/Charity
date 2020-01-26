@@ -4,8 +4,13 @@ return [
     'role_structure' => [
         'super_admin' => [
 						'users' => 'c,r,u,d',
+						'donations'=>'r,u,d'
+
         ],
-        'volunteers' => [],
+//        'volunteers' => [
+//						'users' => 'r',
+//						'donations'=>'r,u'
+//				],
     ],
 
 

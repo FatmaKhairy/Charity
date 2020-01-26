@@ -32,11 +32,26 @@ class giverController extends Controller
 			public function donation(Request $request){
 
 					$request->validate([
-							'governorate_id' => 'required',
-              'city_id'        => 'required',
+							'governorate_name' => 'required',
+              'city_name'        => 'required',
               'street_name'    => 'required',
 					]);
-					Donation::create($request->all());
+					$data=$request->all();
+					$gov= DB::table('governorates')->select('governorate_name')
+						->where('id',$request->governorate_name)->get();
+					$govName=array_values(data_get($gov,'*.governorate_name'));
+					$gov_name=$govName[0];
+
+				  $city= DB::table('cities')->select('city_name')
+						->where('id',$request->city_name)->get();
+					$cityName=array_values(data_get($city,'*.city_name'));
+           $city_name=$cityName[0];
+
+          $data['governorate_name']=$gov_name;
+          $data['city_name']=$city_name;
+         // dd($data);
+					Donation::create($data);
+
 					return redirect('/');
 			}
 

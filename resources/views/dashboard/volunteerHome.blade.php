@@ -30,5 +30,23 @@
 </ul>
 @endsection
 @section('content')
-	{{"الصفحه الشخصيه للمتطوع"}}
+	<div class="container">
+		<div class="table-wrapper">
+			<table class="table table-striped table-hover table-bordered">
+				<thead>
+				<tr>
+					<th style="width: 10px">#</th>
+					<th style="width: 20px">المحافظه</th>
+					<th style="width: 20px">الحي</th>
+					<th style="width:200px">الشارع</th>
+					<th style="width:200px">التارخ</th>
+					<th style="width:200px">الحاله</th>
+				</tr>
+				</thead>
+				<tbody class="trow">
+
+				</tbody>
+			</table>
+		</div>
+	</div>
 @endsection
