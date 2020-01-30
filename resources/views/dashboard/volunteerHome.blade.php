@@ -44,7 +44,28 @@
 				</tr>
 				</thead>
 				<tbody class="trow">
-
+				@if($volDons->count()>0)
+				@foreach($volDons as $index=>$volDon)
+					<tr>
+						<td>{{$index+1}}</td>
+						<td>{{$volDon->governorate_name}}</td>
+						<td>{{$volDon->city_name}}</td>
+						<td>{{$volDon->street_name}}</td>
+						<td>{{$volDon->created_at}}</td>
+						<td>
+							<form style="display: inline-block" action="{{route('dashboard.volunteer.destroy',$volDon->id)}}" method="post">
+									{{csrf_field()}}
+									{{method_field('delete')}}
+									<button type="submit" class="btn btn-danger btn-sm">تم توصيل التبرع</button>
+								</form>
+						</td>
+					</tr>
+				@endforeach
+					@else
+				<tr>
+					<td colspan="6"><h2 style="color: #851443">لم تقم باضافه اي تطوع </h2></td>
+				</tr>
+					@endif
 				</tbody>
 			</table>
 		</div>

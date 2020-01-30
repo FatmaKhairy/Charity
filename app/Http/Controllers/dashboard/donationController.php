@@ -14,13 +14,10 @@ class donationController extends Controller
     public function index()
     {
 				$donations= Donation::all();
-        return view('dashboard.donations',compact('donations'));//كل التببرعات
+				$user=auth()->user();
+        return view('dashboard.donations',compact('donations','user'));//كل التببرعات
     }
 
-    public function show(Donation $donation)
-    {
-
-    }
 
     public function edit(Donation $donation)
     {

@@ -37,42 +37,45 @@
                     <div class="col-md-12"><a href="{{route('dashboard.users.create')}}" class="btn btn-secondary" style="background-color: #85144b"><i class="fa fa-plus"></i> اضافه متطوع </a></div>
                 </div>
             </div>
-            <table class="table table-striped table-hover table-bordered">
-                <thead>
-                <tr>
-                    <th style="width: 10px">#</th>
-                    <th style="width: 80px">اسم المتطوع</th>
-                    <th>الحاله</th>
-                </tr>
-                </thead>
-                <tbody>
-                @if($users->count() >1)
-                @foreach($users as $index=>$user)
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
                     <tr>
-                        <td>{{$index+1}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>
-                            @if($user->name ==$admin)
-                                <h2>super<b>Admin</b></h2>
-                            @endif
-                            @if(auth()->user()->hasPermission('delete-users') && $user->name !=$admin)
-                                <form action="{{route('dashboard.users.destroy',$user->id)}}" style="display: inline-block" method="post">
-                                    {{csrf_field()}}
-                                    {{method_field('delete')}}
-                                    <button type="submit" class="btn btn-danger" style="color: wheat">حذف المتطوع</button>
-                                </form>
-                            @endif
-                                @if(auth()->user()->hasPermission('update-users') && $user->name !=$admin)
-                                        <a  href="{{route('dashboard.users.edit',$user->id)}}" class="btn btn-success" style="color: white">تحديث المتطوع</a>
-                                @endif
-                        </td>
+                        <th style="width: 10px">#</th>
+                        <th style="width: 100px">اسم المتطوع</th>
+                        <th>الحاله</th>
                     </tr>
-                @endforeach
+                    </thead>
+                    @if($users->count() >1)
+                    <tbody>
+                    @foreach($users as $index=>$user)
+                        <tr>
+                            <td>{{$index+1}}</td>
+                            <td>{{$user->name}}</td>
+                            <td>
+                                @if($user->name ==$admin)
+                                    <h2>super<b>Admin</b></h2>
+                                @endif
+                                @if(auth()->user()->hasPermission('delete-users') && $user->name !=$admin)
+                                    <form action="{{route('dashboard.users.destroy',$user->id)}}" style="display: inline-block" method="post">
+                                        {{csrf_field()}}
+                                        {{method_field('delete')}}
+                                        <button type="submit" class="btn btn-danger" style="color: wheat">حذف المتطوع</button>
+                                    </form>
+                                @endif
+                                    @if(auth()->user()->hasPermission('update-users') && $user->name !=$admin)
+                                            <a  href="{{route('dashboard.users.edit',$user->id)}}" class="btn btn-success" style="color: white">تحديث المتطوع</a>
+                                    @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
                     @else
-                    <h2>لايوجد متطوعين</h2>
+                        <tr>
+                            <td colspan="3"><h3 style="color: red">لايوجد متطوعين</h3></td>
+                        </tr>
                     @endif
-                </tbody>
-            </table>
+                </table>
+
 
 
 {{--            <div class="clearfix">--}}

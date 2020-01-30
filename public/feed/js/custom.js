@@ -69,11 +69,24 @@ $(document).ready(function () {
 
     } );//end change select
     //end btn notMe
+
      //click btn اخذ التبرع
-    $('.personal').on('click',function () {
-        $('.trow').append(`<tr>${(this).closest('tr').html()}</tr>`)
+    $('.takeDon').on('click',function () {
+       let user=$(this).data('user');
+       let donation=$(this).data('donation');
+       let url=$(this).data('url');
+       let method=$(this).data('method');
 
+        $.ajax({
+            url:url,
+            method:method,
+            data:{'user':user,'donation': donation},
+            success:function (data) {
 
+            }
+        });
+        $(this).closest('tr').css('display','none')
     })
+    // enf of اخذ التبرع
 
 });

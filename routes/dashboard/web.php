@@ -19,10 +19,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
      Route::get('/','donationController@index')->name('donations');
      Route::resource('/donations','donationController');
      Route::resource('/users','UserController')->except('show');//كل المتطوعين
-      //Route::resource('volunteer','volunteers/volunteerController')->except('show');//صفحه المتطوع الشخصيهuser
-			Route::get('/volunteer',function (){
-						return view('dashboard.volunteerHome');
-			})->name('volunteer');
+
+     Route::resource('/volunteer','volunteerController');//error
+
+	   Route::get('/volunteerAddDon','volunteerController@tackDonation');//x.y error
+
 
 		});//end dashboard routes
 

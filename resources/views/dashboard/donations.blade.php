@@ -18,7 +18,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('dashboard.volunteer')}}" style="color: #e2e3e5">الصفحه الشخصيه</a>
+            <a class="nav-link" href="{{route('dashboard.volunteer.index')}}" style="color: #e2e3e5">الصفحه الشخصيه</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('dashboard.users.index')}}" style="color: #e2e3e5">المتطوعون</a>
@@ -87,12 +87,15 @@
                             </form>
                          @endif
                              @if(auth()->user()->hasPermission('update-donations'))
-                             <a href="{{route('dashboard.donations.edit',$donation->id)}}" class="btn btn-success btn-sm" style="color: white"
-                             > تعديل التبرع</a>
+                                 <a href="{{route('dashboard.donations.edit',$donation->id)}}" class="btn btn-success btn-sm" style="color: white"
+                                 > تعديل التبرع</a>
                              @endif
-                             <form action="{{route('dashboard.volunteer')}}" method="get" style="display: inline-block">
-                                 <button type="submit" class="btn btn-primary btn-sm">التطوع لوصول التبرع</button>
-                             </form>
+                                 <button class="btn btn-primary btn-sm takeDon"
+                                    data-user="{{$user}}"
+                                    data-donation="{{$donation}}"
+                                    data-url="dashboard/volunteerAddDon"
+                                    data-method="get"
+                                 >التطوع لوصول التبرع</button>
                        </td>
                             </tr>
             @endforeach
