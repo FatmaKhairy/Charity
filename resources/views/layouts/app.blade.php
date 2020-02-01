@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset('feed/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('feed/css/font-awesome-rtl.min.css') }}">
     <link rel="stylesheet" href="{{ asset('feed/css/rtl.css') }}">
+    <link href="{{ asset('feed/css/table.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Styles -->
     <style>
         html, body {
@@ -72,7 +74,7 @@
 
 
 </head>
-<body class="text-center">
+<body class="app">
 <div id="app">
      <header>
          <div class="pos-f-t">
@@ -83,21 +85,7 @@
                  </div>
              </div>
              <nav class="navbar navbar-light custom">
-                 <ul class="nav justify-content-end">
-                     <li class="nav-item">
-                         <a class="nav-link" href="/" style="color: #e2e3e5">مطعم</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="/giver" style="color: #e2e3e5">متطوع</a>
-                     </li>
-                <li class="nav-item active">
-                 <button class="navbar-toggler" type="button" style=" position: absolute; left: 15px;"
-                         data-toggle="collapse" data-target="#navbarToggleExternalContent"
-                         aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                 </button>
-                </li>
-                 </ul>
+                 @yield('nav')
              </nav>
          </div>
 
@@ -109,7 +97,7 @@
 
      </footer>
 </div>
-</body>
+
 
 
 {{--<!-- jQuery 3 -->--}}
@@ -117,5 +105,8 @@
 <script src="{{ asset('feed/js/popper.min.js') }}"></script>
 {{--<!-- Bootstrap 3.3.7 -->--}}
 <script src="{{ asset('feed/js/bootstrap.min.js') }}"></script>
+{{--<!--custom js -->--}}
+<script src="{{ asset('feed/js/custom.js') }}"></script>
+
 </body>
 </html>

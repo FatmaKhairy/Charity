@@ -11,17 +11,23 @@
 |
 */
 
+Auth::routes(['register'=>false]);
+
+Route::get('/dashboard', function () {
+				return  redirect()->route('dashboard.donations');//اللي بتظهر بعد مااعمل لوجن
+
+});
+
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-	Route::get('/', function () {
-			return view('index');
-	});
+	Route::get('/','giverController@index');
+	Route::get('/boxes','giverController@showBoxes');
+  Route::post('/donation','giverController@donation');
 
-	Route::get('/giver', function () {
-			return view('giver');
-	});
+  Route::get('/voluntary',function (){return view('voluntary');});
 
-	Auth::routes();
-
+		Route::get('/donation',function (){
+				return view('/dashboard.donations');
+		});
 	Route::get('/home', 'HomeController@index')->name('home');
 });
