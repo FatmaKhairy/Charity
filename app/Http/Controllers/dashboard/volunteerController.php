@@ -36,11 +36,9 @@ class volunteerController extends Controller
 								'city_name'=>$city,
 								'street_name'=>$street,
 						]);
-						//return response()->json($request->donation['id']);
-
 				}
-			//	return redirect()->route('dashboard.donations.destroy',$request->donation['id']);
-
+				Donation::find($request->donation['id'])->delete();//orDonation::where('id',$request->donation['id'])->delete();
+				return redirect()->route('dashboard.donations');
     }
 
 

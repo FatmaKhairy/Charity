@@ -18,20 +18,9 @@ class donationController extends Controller
         return view('dashboard.donations',compact('donations','user'));//كل التببرعات
     }
 
-
-    public function edit(Donation $donation)
-    {
-        return 'تعديل التبرع'.$donation->id;
-    }
-
-    public function update(Request $request, Donation $donation)
-    {
-        //
-    }
-
     public function destroy(Donation $donation)
     {
         $donation->delete();
-        return redirect()->route('dashboard.donations.index');
+        return redirect()->route('dashboard.donations');
     }
 }

@@ -56,7 +56,7 @@
 							<form style="display: inline-block" action="{{route('dashboard.volunteer.destroy',$volDon->id)}}" method="post">
 									{{csrf_field()}}
 									{{method_field('delete')}}
-									<button type="submit" class="btn btn-danger btn-sm">تم توصيل التبرع</button>
+									<button type="submit" class="btn" style="background-color: #ad1457;color: wheat">تم توصيل التبرع</button>
 								</form>
 						</td>
 					</tr>

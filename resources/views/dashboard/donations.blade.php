@@ -83,18 +83,14 @@
                           <form style="display: inline-block" action="{{route('dashboard.donations.destroy',$donation->id)}}" method="post">
                              {{csrf_field()}}
                               {{method_field('delete')}}
-                              <button type="submit" class="btn btn-danger btn-sm">حذف التبرع</button>
+                              <button type="submit" class="btn btn-danger btn-sm" >حذف التبرع</button>
                             </form>
                          @endif
-                             @if(auth()->user()->hasPermission('update-donations'))
-                                 <a href="{{route('dashboard.donations.edit',$donation->id)}}" class="btn btn-success btn-sm" style="color: white"
-                                 > تعديل التبرع</a>
-                             @endif
-                                 <button class="btn btn-primary btn-sm takeDon"
-                                    data-user="{{$user}}"
-                                    data-donation="{{$donation}}"
-                                    data-url="dashboard/volunteerAddDon"
-                                    data-method="get"
+                             <button class="btn btn-outline-success btn-sm takeDon"
+                                  data-user="{{$user}}"
+                                  data-donation="{{$donation}}"
+                                  data-url="dashboard/volunteerAddDon"
+                                  data-method="get"
                                  >التطوع لوصول التبرع</button>
                        </td>
                             </tr>
