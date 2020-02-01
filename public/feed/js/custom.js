@@ -18,9 +18,6 @@ $(document).ready(function () {
 
         } );//end change select
 
-
-
-    //click btn mySelf
     if ( $('#options').change(function (e) {
             e.preventDefault();
             $('#mySelf').removeAttr('disabled');
