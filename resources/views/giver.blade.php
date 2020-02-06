@@ -111,10 +111,23 @@
                                         <div class="form-group row">
                                             <label class="col-md-4 col-form-label text-md-right">العنوان التفصيل </label>
                                             <div class="col-md-6">
-                                                <textarea  required class="form-control" name="street_name">
+                                                <textarea   class="form-control" rows="2" cols="30" name="street_name" required>
                                                 </textarea>
                                             </div>
                                         </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-4 col-form-label text-md-right">رقم الهاتف للتواصل </label>
+                                                <div class="col-md-6">
+                                                <input type="tel" class="form-control" name="phone" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-4 col-form-label text-md-right">ساعه التبرع</label>
+                                                <div class="col-md-6">
+                                                <input  type="time"   min="09:00" max="18:00"  class="form-control" name="hour" required>
+                                                    <small> ساعات التطوع من الساعه 9 صباحا الي 6 مساء</small>
+                                                </div>
+                                            </div>
                                         <div class="form-group row">
                                             <div class="col-md-4">
                                                 <input type="submit" class="form-control btn btn-info" value="{{ 'ارسال'}}">

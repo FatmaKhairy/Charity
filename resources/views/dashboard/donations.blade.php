@@ -37,46 +37,55 @@
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h3 style="font-weight:bold;color: #85144b;font-size:30px;float: right">التبرعات</h3>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <form class="form-group" style="display: inline-block">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <input  class="form-control" name="search-gov" value="">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <input  class=" form-control" name="search-city" value="">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <button type="submit" class="btn btn-secondary  form-control" style="background-color: #85144b">ابحث</button>
-                                            </div>
-                                        </div>
-                                        </form>
-
-                                    </div>
-                                </div>
+                <div class="row">
+                    <div class="col-sm-8"><h2>التبرعات <b>{{$donations->total()}}</b></h2></div>
+{{--                    <div class="col-sm-4">--}}
+{{--                        <div class="search-box">--}}
+{{--                            <form action="{{route('dashboard.donations')}}" method="get" class="form-group" style="display: inline-block">--}}
+{{--                                <div>--}}
+{{--                                    <select name="governorate_id" class="form-control" id="secGovSelect" required>--}}
+{{--                                        <option value="" class="form-control"></option>--}}
+{{--                                        @foreach($govs as $govern)--}}
+{{--                                            <option value="{{$govern->id}}"   data-gov="{{$govern->cities}}" class="form-control">--}}
+{{--                                                {{$govern->governorate_name}}--}}
+{{--                                            </option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <div>--}}
+{{--                                    <select name="city_id" class="form-control " id="secOptions" required> </select>--}}
+{{--                                </div>--}}
+{{--                                <div style="width: 100px">--}}
+{{--                                    <button type="submit" class="btn btn-secondary  form-control" style="background-color: #85144b">ابحث</button>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+                </div>
             </div>
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                 <tr>
                     <th style="width: 10px">#</th>
                     <th style="width: 20px">المحافظه</th>
-                    <th style="width: 20px">الحي</th>
-                    <th style="width:200px">الشارع</th>
-                    <th style="width:200px">التارخ</th>
-                    <th style="width:250px">الحاله</th>
+                    <th style="width: 30px">الحي</th>
+                    <th style="width: 200px">الشارع</th>
+                    <th style="width: 50px">الهاتف</th>
+                    <th style="width: 20px">الوقت</th>
+                    <th style="width: 150px">التارخ</th>
+                    <th style="width: 200px">الحاله</th>
                 </tr>
                 </thead>
                 <tbody>
-           @foreach($donations as $index=>$donation)
+                @if($donations->count() >0)
+                @foreach($donations as $index=>$donation)
                   <tr>
                       <td>{{$index+1}}</td>
                        <td>{{$donation->governorate_name}}</td>
                        <td>{{$donation->city_name}}</td>
                        <td>{{$donation->street_name}}</td>
+                      <td>{{$donation->phone}}</td>
+                      <td>{{$donation->hour}}</td>
                        <td>{{$donation->created_at}}</td>
                        <td>
                          @if(auth()->user()->hasPermission('delete-donations'))
@@ -95,8 +104,14 @@
                        </td>
                             </tr>
             @endforeach
+                    @else
+                    <tr>
+                        <td colspan="8"><h2>لا يوجد اي تبرع حاليا </h2></td>
+                    </tr>
+                @endif
                 </tbody>
             </table>
         </div>
+        {{$donations->appends(request()->query())->links()}}
     </div>
 @endsection

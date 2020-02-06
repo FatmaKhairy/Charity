@@ -18,6 +18,8 @@ class CreateDonationsTable extends Migration
 						$table->string('governorate_name');
 						$table->string(	'city_name');
 						$table->text('street_name');
+						$table->integer('phone');
+						$table->time('hour');
             $table->timestamps();
         });
     }

@@ -23,11 +23,5 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 	Route::get('/','giverController@index');
 	Route::get('/boxes','giverController@showBoxes');
   Route::post('/donation','giverController@donation');
-
-  Route::get('/voluntary',function (){return view('voluntary');});
-
-		Route::get('/donation',function (){
-				return view('/dashboard.donations');
-		});
 	Route::get('/home', 'HomeController@index')->name('home');
 });

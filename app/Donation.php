@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class Donation extends Model
 {
    protected $fillable=[
-   		'governorate_name','city_name','street_name'
+   		'governorate_name','city_name','street_name','phone','hour'
 	 ];
 		public function cities()
 		{
