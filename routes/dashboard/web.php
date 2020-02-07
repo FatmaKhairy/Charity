@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
 		 Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function (){
-     Route::get('/','donationController@index')->name('donations');
+    // Route::get('/','donationController@index')->name('donations');
      Route::resource('/donations','donationController');
      Route::resource('/users','UserController')->except('show');//كل المتطوعين
 

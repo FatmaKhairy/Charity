@@ -20,12 +20,8 @@
         <li class="nav-item">
             <a class="nav-link" href="{{route('dashboard.users.index')}}" style="color: #e2e3e5">المتطوعون</a>
         </li>
-        <li class="nav-item active">
-            <button class="navbar-toggler" type="button" style=" position: absolute; left: 15px;"
-                    data-toggle="collapse" data-target="#navbarToggleExternalContent"
-                    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <li class="nav-item">
+            <a class="nav-link" href="/" style=" position: absolute; left: 15px;color: #778899"><h3>et<span>3</span>am</h3></a>
         </li>
 
     </ul>

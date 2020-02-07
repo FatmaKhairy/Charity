@@ -78,7 +78,7 @@
 <div id="app">
      <header>
          <div class="pos-f-t">
-             <div class="{{ 'url' =='/'? 'collapsible':'collapse'}}" id="navbarToggleExternalContent">
+             <div class="collapse" id="navbarToggleExternalContent">
                  <div class="bg-light p-4">
                      <h5 class="text-dark h4">اطعام</h5>
                      <span class="text-muted">{ ويطعمون الطعام على حبه مسكيناً ويتيماً وأسيرا ً}</span>

@@ -2,17 +2,13 @@
 @section('nav')
     <ul class="nav justify-content-end">
         <li class="nav-item active">
-            <a class="nav-link" href="/" style="color: #e2e3e5">مطعم</a>
+            <a class="nav-link" href="/" style="color: whitesmoke"><h4> مطعم </h4></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/dashboard" style="color: #e2e3e5">متطوع</a>
+            <a class="nav-link" href="/dashboard/donations" style="color:white"><h4> متطوع </h4></a>
         </li>
-        <li class="nav-item active">
-            <button class="navbar-toggler" type="button" style=" position: absolute; left: 15px;"
-                    data-toggle="collapse" data-target="#navbarToggleExternalContent"
-                    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <li class="nav-item">
+            <a class="nav-link" href="/" style=" position: absolute; left: 15px;color: #778899"><h3>et<span>3</span>am</h3></a>
         </li>
     </ul>
     @endsection
@@ -20,7 +16,7 @@
     <div class="container">
         <section class="content-header">
             <ol class="breadcrumb">
-               <h3> <li class="active"> مطعم </li></h3>
+               <h3> <li class="active" > مطعم </li></h3>
             </ol>
         </section>
            <section class="content">

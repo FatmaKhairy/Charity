@@ -13,9 +13,8 @@
 
 Auth::routes(['register'=>false]);
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard/donations', function () {
 				return  redirect()->route('dashboard.donations');//اللي بتظهر بعد مااعمل لوجن
-
 });
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
