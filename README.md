@@ -1,4 +1,25 @@
 # Et3am
-  to use this project you need to :
-     ** add laratrust backage  ==>https://laratrust.santigarcor.me/docs/5.2/installation.html
-     *** to login as volunteer use Email:fatma@d.com Password: 12345678
+  A project to help you to connect with people who need food, The project built with laravel, bootstrap and many more .
+
+## Installation 
+
+
+Enter the following Commands
+```
+git clone https://github.com/FatmaKhairy/Charity.git
+cd Charity
+composer install
+copy .env.exmaple .env
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+```
+
+
+## Registeration
+
+to login as Admin use 
+```
+Email:admin@app.com
+Password: 12345678
+```
