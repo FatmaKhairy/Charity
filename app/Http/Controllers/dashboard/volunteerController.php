@@ -37,8 +37,9 @@ class volunteerController extends Controller
 								'street_name'=>$street,
 						]);
 				}
+
 				Donation::find($request->donation['id'])->delete();//orDonation::where('id',$request->donation['id'])->delete();
-				return redirect()->route('dashboard.donations');
+				//return redirect()->route('dashboard.donations');
     }
 
 

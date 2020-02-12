@@ -94,7 +94,7 @@
                              <button class="btn btn-outline-success btn-sm takeDon"
                                   data-user="{{$user}}"
                                   data-donation="{{$donation}}"
-                                  data-url="dashboard/volunteerAddDon"
+                                  data-url="volunteerAddDon"
                                   data-method="get"
                                  >التطوع لوصول التبرع</button>
                        </td>

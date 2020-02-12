@@ -83,6 +83,7 @@ $(document).ready(function () {
             method:method,
             data:{'user':user,'donation': donation},
             success:function (data) {
+                  console.log('g')
 
             }
         });
